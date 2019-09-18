@@ -126,6 +126,8 @@ The proportion of cases where x+y > 1 is `r mean(pull(problem2_df, xy_logical))`
 
 ggplot(problem2_df, aes(x = x, y = y, color=xy_logical)) + geom_point()
 
+ggsave("problem2_df.pdf")  # save first plot to current project
+
 ```
 
 Since this scatterplot is colored using a binary logical vector, the color scale is binary(red and blue).
@@ -145,7 +147,6 @@ However, since this vector only actually contains two possible values, there are
 
 ```{r} 
 ggplot(problem2_df, aes(x = x, y = y, color=factor_xy)) + geom_point()
-
 
 ```
 
