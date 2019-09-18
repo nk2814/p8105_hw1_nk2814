@@ -1,0 +1,42 @@
+---
+title: "p8105_hw1_nk2814"
+author: "Naama Kipperman"
+date: "9/17/2019"
+output: html_document
+---
+
+
+
+## Problem 1
+
+
+
+```{r problem1}
+
+# First, load tidyverse package.
+library(tidyverse)   
+
+# Set a seed to ensure reproducibility
+
+set.seed(1)
+
+# Next, define data frame called 'problem1_df'
+
+problem1_df = tibble(    
+  norm_samp = rnorm(8),    # a random sample of size 8
+  norm_samp_pos = norm_samp > 0, # a logical vector 
+  vec_char = c("this", "is", "my", "first", "time", "using",   "this", "software"),   # a character vector of length 8
+  vec_factor = factor(c("one", "two", "three", "one", "two", "three", "one", "two"))
+)
+
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
