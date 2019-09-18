@@ -59,7 +59,7 @@ as.numeric(pull(problem1_df, vec_factor))
 ### Conversions of the logical vector
 ```{r logical vector conversions}
 
-# Convert logical vector norm_samp_pos to numeric
+# Convert logical vector norm_samp_pos to numeric vector called logical_num
 
 logical_num=as.numeric(pull(problem1_df, norm_samp_pos))
 
@@ -67,4 +67,14 @@ logical_num=as.numeric(pull(problem1_df, norm_samp_pos))
 
 view(logical_num)
 
-# Problem 2 
+# Multiply the random sample norm_samp by the previous result
+
+# First, pull norm_samp from our data frame so that it exists in our R environment
+
+norm_samp = pull(problem1_df, norm_samp)
+
+# Now, we can multiply our random sample norm_samp by our logical numeric vector
+
+logical_num*norm_samp
+
+```
