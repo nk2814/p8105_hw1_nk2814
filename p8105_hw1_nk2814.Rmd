@@ -26,7 +26,7 @@ set.seed(1)
 problem1_df = tibble(    
   norm_samp = rnorm(8),    
   norm_samp_pos = norm_samp > 0,  
-  vec_char = c("this", "is", "my", "first", "time", "using",   "R", "software"),   
+  vec_char = c("this", "is", "my", "first", "time", "using", "R", "software"),   
   vec_factor = factor(c("apple", "orange", "plum", "apple", "orange", "plum", "apple", "orange"))
 )
 
@@ -51,7 +51,8 @@ as.numeric(pull(problem1_df, vec_char))
 as.numeric(pull(problem1_df, vec_factor))
 
 # The logical vector norm_samp_pos successfully converted to a numeric vector. 
-# The character vector vec_char could not convert to a numeric vector - NA's were introduced by coercion instead. This helps explain why we couldn't take the mean of this vector - it's a string of characters. R 
+# The character vector vec_char could not convert to a numeric vector - NA's were introduced by coercion instead. 
+# This helps explain why we couldn't take the mean of this vector - it's a string of characters.
 # The factor vector vec_factor successfully converted to a numeric vector of 1, 2, and 3. 
 
 ```
@@ -59,22 +60,32 @@ as.numeric(pull(problem1_df, vec_factor))
 ### Conversions of the logical vector
 ```{r logical vector conversions}
 
-# Convert logical vector norm_samp_pos to numeric vector called logical_num
+# Convert logical vector norm_samp_pos to numeric vector
+# Multiply result by our random sample norm_samp
 
-logical_num=as.numeric(pull(problem1_df, norm_samp_pos))
+as.numeric(pull(problem1_df, norm_samp_pos))*pull(problem1_df, norm_samp) # Resulting vector below:
 
-# Print logical_num to make sure it successfully converted from 'True' and 'False' values to numeric values
 
-view(logical_num)
+# Convert the logical vector norm_samp_pos to a factor 
+# Multiply result by our random sample norm_samp
+# Error message appears.
+# Since we're working with a factor vector, it won't multiply our random sample of numbers
 
-# Multiply the random sample norm_samp by the previous result
+as.factor(pull(problem1_df, norm_samp_pos))*pull(problem1_df, norm_samp)
 
-# First, pull norm_samp from our data frame so that it exists in our R environment
 
-norm_samp = pull(problem1_df, norm_samp)
 
-# Now, we can multiply our random sample norm_samp by our logical numeric vector
+# Convert the logical vector norm_samp_pos to a factor 
+# Conver the resulting factor variable to numeric
+# Then, multiply the result by our random sample norm_samp
 
-logical_num*norm_samp
+as.numeric(as.factor(pull(problem1_df, norm_samp_pos)))*pull(problem1_df, norm_samp) # Resulting vector below:
+
+
 
 ```
+
+# Problem 2 
+
+
+
