@@ -8,7 +8,7 @@ output: github_document
 
 
 # Problem 1
-## Creating a Data Frame and Taking means
+### Creating a Data Frame and Taking means
 
 
 
@@ -24,9 +24,9 @@ set.seed(1)
 # Next, define data frame called 'problem1_df'
 
 problem1_df = tibble(    
-  norm_samp = rnorm(8),    # a random sample of size 8
-  norm_samp_pos = norm_samp > 0, # a logical vector 
-  vec_char = c("this", "is", "my", "first", "time", "using",   "this", "software"),   # a character vector of length 8
+  norm_samp = rnorm(8),    
+  norm_samp_pos = norm_samp > 0,  
+  vec_char = c("this", "is", "my", "first", "time", "using",   "R", "software"),   
   vec_factor = factor(c("apple", "orange", "plum", "apple", "orange", "plum", "apple", "orange"))
 )
 
@@ -43,7 +43,7 @@ mean(pull(problem1_df, vec_factor)) # unable to calculate the mean of this facto
 
 ```
 
-## Attempting to convert variables to numeric 
+### Attempting to convert variables to numeric 
 
 ``` {r eval=FALSE} 
 as.numeric(pull(problem1_df, norm_samp_pos))
@@ -55,3 +55,16 @@ as.numeric(pull(problem1_df, vec_factor))
 # The factor vector vec_factor successfully converted to a numeric vector of 1, 2, and 3. 
 
 ```
+
+### Conversions of the logical vector
+```{r logical vector conversions}
+
+# Convert logical vector norm_samp_pos to numeric
+
+logical_num=as.numeric(pull(problem1_df, norm_samp_pos))
+
+# Print logical_num to make sure it successfully converted from 'True' and 'False' values to numeric values
+
+view(logical_num)
+
+# Problem 2 
