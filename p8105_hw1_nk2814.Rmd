@@ -86,6 +86,67 @@ as.numeric(as.factor(pull(problem1_df, norm_samp_pos)))*pull(problem1_df, norm_s
 ```
 
 # Problem 2 
+### Create a dataframe 
+
+```{r Create dataframe}
 
 
+# Next, define dataframe called problem2_df
 
+problem2_df = tibble(    
+  x = rnorm(500),
+  y = rnorm(500),
+  xy_logical = x+y> 1,  
+  numeric_xy = as.numeric(xy_logical),
+  factor_xy = as.factor(xy_logical),
+)
+```
+
+### Short description of my dataframe
+
+Number of rows in my dataframe: `r nrow(problem2_df)`.
+
+
+Number of columns in my dataframe: `r ncol(problem2_df)`.
+
+
+The mean of x is `r mean(pull(problem2_df, x))`.
+
+
+The median of x is `r median(pull(problem2_df, x))`. 
+
+The standard deviation of x is `r sd(pull(problem2_df, x))`. 
+
+The proportion of cases where x+y > 1 is `r mean(pull(problem2_df, xy_logical))`. 
+
+### Scatterplots
+
+#### 1. scatterplot of y versus x, colored using xy_logical:
+``` {r} 
+
+ggplot(problem2_df, aes(x = x, y = y, color=xy_logical)) + geom_point()
+
+```
+
+Since this scatterplot is colored using a binary logical vector, the color scale is binary(red and blue).
+
+
+#### 2. scatterplot of y versus x, colored using numeric_xy:
+
+```{r} 
+ggplot(problem2_df, aes(x = x, y = y, color=numeric_xy)) + geom_point()
+
+```
+
+Since this scatterplot is colored using a numeric vector, which is technially continuous, the color scale is a color gradient.
+However, since this vector only actually contains two possible values, there are only 2 colors seen on the plot.
+
+#### 3. scatterplot of y versus x, colored using factor_xy
+
+```{r} 
+ggplot(problem2_df, aes(x = x, y = y, color=factor_xy)) + geom_point()
+
+
+```
+
+Since this scatterplot is colored using a factor vector that consists of two discrete factors, the scale is binary (red and blue). 
