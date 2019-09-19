@@ -1,7 +1,7 @@
 ---
 title: "p8105_hw1_nk2814"
 author: "Naama Kipperman"
-date: "9/17/2019"
+date: "9/20/2019"
 output: github_document
 ---
 
@@ -75,7 +75,6 @@ as.numeric(pull(problem1_df, norm_samp_pos))*pull(problem1_df, norm_samp) # Resu
 # Since we're working with a factor vector, it won't multiply our random sample of numbers
 
 as.factor(pull(problem1_df, norm_samp_pos))*pull(problem1_df, norm_samp)
-
 
 
 # Convert the logical vector norm_samp_pos to a factor 
